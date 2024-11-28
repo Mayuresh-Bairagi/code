@@ -1,3 +1,5 @@
+import random
+
 def binary_search(arr, target):
     left = 0
     right = len(arr) - 1
@@ -11,9 +13,15 @@ def binary_search(arr, target):
             left = mid + 1
     return -1  
 
-sorted_array = [1, 3, 5, 7, 9, 11, 13, 15]
-target_value = 7
-result = binary_search(sorted_array, target_value)
+
+random_array = [random.randint(1, 1000) for _ in range(10)]
+target_value = random.choice(random_array)  
+random_array.sort() 
+
+print(f"The random array: {random_array}")
+print(f"The target value: {target_value}")
+
+result = binary_search(random_array, target_value)
 
 if result != -1:
     print(f"Target {target_value} found at index {result}.")
